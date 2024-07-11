@@ -1,15 +1,20 @@
 package com.example.taskmanager.dto;
 
-import org.springframework.stereotype.Component;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.Value;
 
 import java.util.List;
 
-
-public class Epic extends Task{
+@Value
+@AllArgsConstructor
+public class Epic{
+    private final int id;
+    private final String name;
+    private final String description;
+    private final TaskStatus taskStatus;
     public List<Integer> subTasksID;
 
-    public Epic(String name, String description, int id, TaskStatus status, int[] subTasksID) {
-        super(name, description, id, status);
-        this.subTasksID = subTasksID;
-    }
 }

@@ -1,24 +1,21 @@
 package com.example.taskmanager.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.Value;
 import org.springframework.stereotype.Component;
 
-@Component
-public class SubTask extends Task {
-    private int epicID;
 
-    public SubTask(String name, String description, int id, TaskStatus status, int epicID) {
-        super(name, description, id, status);
-        this.epicID = epicID;
-    }
+@Value
+@AllArgsConstructor
+public class SubTask{
+    private final int id;
+    private final String name;
+    private final String description;
+    private final TaskStatus taskStatus;
+    private final int epicID;
 
-    @Override
-    public String toString() {
-        return "SubTask{" +
-                "epicID=" + epicID +
-                ", name='" + this.getName() + '\'' +
-                ", description='" + this.getDescription() + '\'' +
-                ", id=" + this.getId() +
-                ", status=" + this.getStatus() +
-                '}';
-    }
+
 }
